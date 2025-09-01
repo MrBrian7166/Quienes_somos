@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brian - Presentación</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #9f23b5 0%, #f3bbf0 50%, #fdbb2d 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            max-width: 1000px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .back-button {
+            align-self: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .back-button a {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: #6a11cb;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .back-button a:hover {
+            color: #2575fc;
+            transform: translateX(-5px);
+        }
+        
+        .back-button i {
+            margin-right: 8px;
+        }
+        
+        .profile-header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .profile-header h1 {
+            color: #9a248a;
+        }
+        
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border: 5px solid #fff;
+            margin-bottom: 20px;
+        }
+        
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        h1 {
+            color: #1a2a6c;
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .title {
+            color: #730976;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            width: 100%;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card h2 {
+            color: #530c4a;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #dc4f7c;
+            font-size: 1.5rem;
+        }
+        
+        .about p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .skills-list {
+            list-style: none;
+        }
+        
+        .skills-list li {
+            margin-bottom: 15px;
+        }
+        
+        .skill-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+            color: #792467;
+        }
+        
+        .skill-bar {
+            height: 10px;
+            background: #e9ecef;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .skill-level {
+            height: 100%;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            border-radius: 5px;
+        }
+        
+        .experience-item, .education-item {
+            margin-bottom: 20px;
+        }
+        
+        .experience-item h3, .education-item h3 {
+            color: #6c1a56;
+            margin-bottom: 5px;
+        }
+        
+        .date {
+            color: #6c757d;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .contact-list {
+            list-style: none;
+        }
+        
+        .contact-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-list i {
+            width: 30px;
+            color: #b21f1f;
+            font-size: 1.2rem;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        @media (max-width: 480px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .project-item {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .project-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-item h4 {
+            color: #6c1a56;
+            margin-bottom: 10px;
+        }
+        
+        .project-item p {
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="back-button">
+            <a href="index.html">
+                <i class="fas fa-arrow-left"></i> Volver al Inicio
+            </a>
+        </div>
+        
+        <div class="profile-header">
+            <div class="profile-image">
+                <img src="descarga.gif" alt="Xitlalic">
+            </div>
+            <h1>Xitlalic Flores</h1>
+            <div class="title">Desarrolladora web y entusiasta de Los Sims 4</div>
+        </div>
+        
+        <div class="content">
+            <div class="card about">
+                <h2>Sobre mí</h2>
+                <p>Hola, soy Xitlalic Flores, una apasionada desarrolladora web con habilidades en HTML, CSS y JavaScript. Me encanta crear experiencias digitales atractivas y funcionales. Además de la programación, disfruto jugando Los Sims 4 y explorando nuevas formas de expresión creativa.</p>
+            </div>
+            
+            <div class="card skills">
+                <h2>Habilidades</h2>
+                <ul class="skills-list">
+                    <li>
+                        <span class="skill-name">HTML/CSS</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 95%"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="skill-name">JavaScript</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 90%"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="skill-name">Programación orientada a objetos</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 70%"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="skill-name">Diseño UI/UX</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 80%"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="skill-name">Gestión de proyectos de software y metodologías ágiles.</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 75%"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="card experience">
+                <h2>Experiencia</h2>
+                <div class="experience-item">
+                    <h3>Desarrollador Frontend</h3>
+                    <span class="date">2024</span>
+                    <p>Desarrollo de interfaces de usuario atractivas y funcionales utilizando HTML, CSS y JavaScript.</p>
+                </div>
+                <div class="experience-item">
+                    <h3>Diseñador Android</h3>
+                    <span class="date">2024</span>
+                    <p>Desarrollo de una aplicacion que permite leer y escribir archivos de texto.</p>
+                </div>
+                <div class="experience-item">
+                    <h3>Desarrollador Web </h3>
+                    <span class="date">2021 - 2025</span>
+                    <p>Me gusta el desarrollo web y la creación de aplicaciones interactivas.</p>
+                </div>
+            </div>
+            
+            <div class="card education">
+                <h2>Educación</h2>
+                <div class="education-item">
+                    <h3>Escuela preparatoria</h3>
+                    <span class="date">2003 - 2025</span>
+                    <p>mucha escuela</p>
+                </div>
+                <div class="education-item">
+                    <h3>Ingeniería en Sistemas</h3>
+                    <span class="date">2021 - 2026</span>
+                    <p>viva el itszn</p>
+                </div>
+            </div>
+            
+            <div class="card projects">
+                <h2>Proyectos Destacados</h2>
+                <div class="projects-grid">
+                    <div class="project-item">
+                        <h4>HackaTecNM</h4>
+                        <p>Participación en el Hackathon de Tecnologías Emergentes en el ITSZN.</p>
+                    </div>
+                    <div class="project-item">
+                        <h4>Fundamentos de programación</h4>
+                        <p>Curso introductorio a la programación con Python.</p>
+                    </div>
+                    <div class="project-item">
+                        <h4>Sitio Web </h4>
+                        <p>Para la clase de dani</p>
+                    </div>
+                    <div class="project-item">
+                        <h4>Pagina de una tienda de joyeria</h4>
+                        <p>Desarrollo de una página web para la exhibición y venta de joyería.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
